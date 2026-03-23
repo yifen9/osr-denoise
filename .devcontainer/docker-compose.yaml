@@ -1,0 +1,15 @@
+services:
+  osr-denoise-dev:
+    image: ghcr.io/yifen9/osr-denoise-dev
+    build:
+      context: ..
+      dockerfile: Dockerfile.dev
+    container_name: osr-denoise-dev
+    working_dir: /workspace
+    volumes:
+      - "..:/workspace"
+    command: >
+      bash -lc "
+        just init &&
+        exec sleep infinity
+      "
